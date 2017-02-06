@@ -15,12 +15,12 @@ class Profile(APIContract):
         self.competitive_rank = competitive_rank
     #
     def display_api_obj(self):
-        print("Username: " + self.username +
-              "\nLevel " + self.level +
-              "\nTotal hours played: " + self.quick_hours_total + self.competitive_hours_total +
-              " (Quick - " + self.quick_hours_total + " / Competitive - " + self.competitive_hours_total + ")" +
-              "\nTotal competitive games played: " + self.competitive_win_total + self.competitive_loss_total +
-              " (Wins - " + self.competitive_win_total + " / Losses - " + self.competitive_loss_total + ")" +
-              "\nCompetitive rank: " + self.competitive_rank +
-              "\nTotal wins (quick games): " + self.quick_win_total +
-              "\n" + self.avatar)
+        print("Username: ", self.username,
+              "\nLevel ", self.level,
+              "\nTotal hours (Quick): ", self.quick_hours_total,
+              "\nTotal hours (Competitive): ", self.competitive_hours_total,
+              "\nTotal competitive games played: ", (int(self.competitive_win_total) + int(self.competitive_loss_total)),
+              " (Wins - ", self.competitive_win_total, " / Losses - ", self.competitive_loss_total, ")",
+              "\nCompetitive rank: ", self.competitive_rank,
+              "\nTotal wins (quick games): ", self.quick_win_total,
+              "\n", self.avatar)

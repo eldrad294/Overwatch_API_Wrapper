@@ -8,6 +8,6 @@ class Platforms(APIContract):
         self.hasAccount = hasAccount
     #
     def display_api_obj(self):
-        print("Platform: " + self.platform +
-              "Region: " + self.region +
-              "Has Account: " + self.hasAccount)
+        print("Platform: ", self.platform,
+              "\nRegion: ", self.region,
+              "\nHas Account: ", self.hasAccount)

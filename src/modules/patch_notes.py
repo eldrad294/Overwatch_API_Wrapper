@@ -19,16 +19,16 @@ class PatchNotes(APIContract):
         self.version = version
     #
     def display_api_obj(self):
-        print("Program: " + self.program +
-              "\nLocale: " + self.locale +
-              "\nType: " + self.type +
-              "\nPatch Version: " + self.patch_version +
-              "\nStatus: " + self.status +
-              "\nDetail: " + self.detail +
-              "\nBuild Number: " + self.build_number +
-              "\nPublish: " + self.publish +
-              "\nCreated: " + self.created +
-              "\nUpdated: " + self.updated +
-              "\nDevelop: " + self.develop +
-              "\nSlug: " + self.slug +
-              "\nVersion: " + self.version)
+        print("Program: ", self.program,
+              "\nLocale: ", self.locale,
+              "\nType: ", self.type,
+              "\nPatch Version: ", self.patch_version,
+              "\nStatus: ", self.status,
+              "\nDetail: ", self.detail,
+              "\nBuild Number: ", self.build_number,
+              "\nPublish: ", self.publish,
+              "\nCreated: ", self.created,
+              "\nUpdated: ", self.updated,
+              "\nDevelop: ", self.develop,
+              "\nSlug: ", self.slug,
+              "\nVersion: ", self.version)
