@@ -4,7 +4,7 @@ import src.constants as const
 import json
 from src.modules import achievements as a, platforms as pl, profile as pr, all_heroes as ah
 #
-def get_achievements(tag, platform, region):
+def get_achievements(tag, platform="pc", region="eu"):
     """ API wrapper method which returns an achievement object """
     #
     try:
@@ -17,7 +17,7 @@ def get_achievements(tag, platform, region):
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
 #
-def get_platforms(tag, platform, region):
+def get_platforms(tag, platform="pc", region="eu"):
     """ API wrapper method which returns a platform object """
     #
     platform_list = []
@@ -33,7 +33,7 @@ def get_platforms(tag, platform, region):
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
 #
-def get_profile(tag, platform, region):
+def get_profile(tag, platform="pc", region="eu"):
     """ API wrapper method which returns a profile object """
     #
     try:
@@ -52,7 +52,7 @@ def get_profile(tag, platform, region):
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
 #
-def get_all_heroes_stats(tag, platform, region, mode):
+def get_all_heroes_stats(tag, platform="pc", region="eu", mode="quickplay"):
     """ API wrapper method which  returns an all_heroes object """
     #
     try:
