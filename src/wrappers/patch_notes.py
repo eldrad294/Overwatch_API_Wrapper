@@ -5,22 +5,26 @@ import json
 from src.modules import patch_notes as pn
 #
 def get_patch_notes():
+    """ API wrapper method which returns a list of patch noteobjects """
     #
+    patch_note_list =[]
     try:
         patch_notes = json.load(const.codec(urlopen(const.URL + "patch_notes")))
-        result = pn.PatchNotes(patch_notes['patchNotes'][0]['program'],
-                               patch_notes['patchNotes'][0]['locale'],
-                               patch_notes['patchNotes'][0]['type'],
-                               patch_notes['patchNotes'][0]['patchVersion'],
-                               patch_notes['patchNotes'][0]['status'],
-                               patch_notes['patchNotes'][0]['detail'],
-                               patch_notes['patchNotes'][0]['buildNumber'],
-                               patch_notes['patchNotes'][0]['publish'],
-                               patch_notes['patchNotes'][0]['created'],
-                               patch_notes['patchNotes'][0]['updated'],
-                               patch_notes['patchNotes'][0]['develop'],
-                               patch_notes['patchNotes'][0]['slug'],
-                               patch_notes['patchNotes'][0]['version'])
-        return result
+        for patch_note in patch_notes['patchNotes']:
+            result = pn.PatchNotes(patch_note['program'],
+                                   patch_note['locale'],
+                                   patch_note['type'],
+                                   patch_note['patchVersion'],
+                                   patch_note['status'],
+                                   patch_note['detail'],
+                                   patch_note['buildNumber'],
+                                   patch_note['publish'],
+                                   patch_note['created'],
+                                   patch_note['updated'],
+                                   patch_note['develop'],
+                                   patch_note['slug'],
+                                   patch_note['version'])
+            patch_note_list.append(result)
+        return patch_note_list
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
