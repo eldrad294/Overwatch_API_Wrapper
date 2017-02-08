@@ -1,8 +1,9 @@
-from src.wrappers import patch_notes as pn, \
-                         platform as pl
+import src.wrappers.patch_notes as pn, \
+       src.wrappers.platform as pl
 import sys
 from src.constants import *
 #
+# Param Checks
 if len(sys.argv) < 1 and sys.argv[0] is None:
     exit(1)
 #
@@ -13,12 +14,14 @@ platform = sys.argv[2]
 region = sys.argv[3]
 mode = sys.argv[4]
 #
+# Cleaning Params
 try:
     command = str.strip(str.lower(command))
     tag = tag.replace("#", "-")
-except Exception:
-    print("Stat retrieval failed. Incorrect command/s")
+except Exception as e:
+    print("Stat retrieval failed. Incorrect command/s.\n" + str(e))
 #
+# Call API Wrappers
 if command in PATCH_NOTES:
     for patch_note in pn.get_patch_notes():
         print(patch_note.display_api_obj())
