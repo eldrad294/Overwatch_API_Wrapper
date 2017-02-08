@@ -16,6 +16,8 @@ def get_achievements(tag, platform="pc", region="eu"):
         return result
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
+    except Exception as e:
+        print("An error occurred:\n " + str(e))
 #
 def get_platforms(tag, platform="pc", region="eu"):
     """ API wrapper method which returns a platform object """
@@ -32,6 +34,8 @@ def get_platforms(tag, platform="pc", region="eu"):
         return platform_list
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
+    except Exception as e:
+        print("An error occurred:\n " + str(e))
 #
 def get_profile(tag, platform="pc", region="eu"):
     """ API wrapper method which returns a profile object """
@@ -51,6 +55,8 @@ def get_profile(tag, platform="pc", region="eu"):
         return result
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
+    except Exception as e:
+        print("An error occurred:\n " + str(e))
 #
 def get_all_heroes_stats(tag, platform="pc", region="eu", mode="quickplay"):
     """ API wrapper method which  returns an all_heroes object """
@@ -95,18 +101,20 @@ def get_all_heroes_stats(tag, platform="pc", region="eu", mode="quickplay"):
                               all_heroes['Medals-Gold'],
                               all_heroes['Medals-Silver'],
                               all_heroes['Medals-Bronze'],
-                              all_heroes['GamesPlayed'],
+                              all_heroes['GamesPlayed'] if mode == "competitive" else None,
                               all_heroes['GamesWon'],
                               all_heroes['TimeSpentonFire'],
                               all_heroes['ObjectiveTime'],
                               all_heroes['TimePlayed'],
                               all_heroes['MeleeFinalBlow-MostinGame'],
-                              all_heroes['GamesTied'],
-                              all_heroes['GamesLost'],
+                              all_heroes['GamesTied'] if mode == "competitive" else None,
+                              all_heroes['GamesLost'] if mode == "competitive" else None,
                               all_heroes['DefensiveAssists'],
                               all_heroes['DefensiveAssists-Average'],
                               all_heroes['OffensiveAssists'],
                               all_heroes['OffensiveAssists-Average'])
         return result
     except urllib.error.URLError as e:
-        print("An error occurred when fetching stats\n" + e)
+        print("An error occurred when fetching stats\n" + str(e))
+    except Exception as e:
+        print("An error occurred:\n " + str(e))

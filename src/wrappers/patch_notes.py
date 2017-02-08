@@ -27,4 +27,6 @@ def get_patch_notes():
             patch_note_list.append(result)
         return patch_note_list
     except urllib.error.URLError as e:
-        print("An error occurred when fetching stats\n" + e)
+        print("An error occurred when fetching stats\n" + str(e))
+    except Exception as e:
+        print("An error occurred:\n " + str(e))
