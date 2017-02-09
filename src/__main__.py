@@ -1,18 +1,21 @@
-import src.wrappers.patch_notes as pn, \
-       src.wrappers.platform as pl
 import sys
+sys.path.append("..")
 from src.constants import *
+import src.wrappers.patch_notes as pn
+import src.wrappers.platform as pl
+import src.utils as util
 #
 # Param Checks
-if len(sys.argv) < 1 and sys.argv[0] is None:
-    exit(1)
-#
-# Receive script params
-command = sys.argv[0]
-tag = sys.argv[1]
-platform = sys.argv[2]
-region = sys.argv[3]
-mode = sys.argv[4]
+try:
+    #
+    # Receive script params
+    command = sys.argv[1]
+    tag = sys.argv[2] if len(sys.argv) > 2 else ''
+    platform = sys.argv[3] if len(sys.argv) > 3 else 'pc'
+    region = sys.argv[4] if len(sys.argv) > 4 else 'eu'
+    mode = sys.argv[5] if len(sys.argv) > 5 else 'quickplay'
+except IndexError as e:
+    print("Invalid Arguments.\n" + str(e))
 #
 # Cleaning Params
 try:
@@ -22,7 +25,9 @@ except Exception as e:
     print("Stat retrieval failed. Incorrect command/s.\n" + str(e))
 #
 # Call API Wrappers
-if command in PATCH_NOTES:
+if command in HELP:
+    util.get_help()
+elif command in PATCH_NOTES:
     for patch_note in pn.get_patch_notes():
         print(patch_note.display_api_obj())
 elif command in ACHIEVEMENTS:

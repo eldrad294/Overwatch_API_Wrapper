@@ -10,4 +10,5 @@ class Platforms(APIContract):
     def display_api_obj(self):
         print("Platform: ", self.platform,
               "\nRegion: ", self.region,
-              "\nHas Account: ", self.hasAccount)
+              "\nHas Account: ", self.hasAccount,
+              "\n------------------------------------------")

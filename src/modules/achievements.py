@@ -10,4 +10,5 @@ class Achievements(APIContract):
     def display_api_obj(self):
         print("Total number of achievments: ", self.total_number_of_achievements,
               "\nNumber of achievements: ", self.total_number_of_achievements,
-              "\nFinished achievements: ", self.finished_achievements)
+              "\nFinished achievements: ", self.finished_achievements,
+              "\n------------------------------------------")

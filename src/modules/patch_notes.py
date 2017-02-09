@@ -31,4 +31,5 @@ class PatchNotes(APIContract):
               "\nUpdated: ", self.updated,
               "\nDevelop: ", self.develop,
               "\nSlug: ", self.slug,
-              "\nVersion: ", self.version)
+              "\nVersion: ", self.version,
+              "\n------------------------------------------")

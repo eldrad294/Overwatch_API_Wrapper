@@ -1,8 +1,10 @@
-from urllib.request import urlopen
-import urllib
-import src.constants as const
 import json
+import urllib
+from urllib.request import urlopen
+import src.constants as const
 from src.modules import patch_notes as pn
+
+
 #
 def get_patch_notes():
     """ API wrapper method which returns a list of patch noteobjects """

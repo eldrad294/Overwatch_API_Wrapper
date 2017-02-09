@@ -110,4 +110,5 @@ class AllHeroes(APIContract):
               "\nDefensive Assists: ", self.defensive_assists,
               "\nDefensive Assists Average: ", self.defensive_assists_avg,
               "\nOffensive Assists: ", self.offensive_assists,
-              "\nOffensive Assists Average", self.offensive_assists_avg)
+              "\nOffensive Assists Average", self.offensive_assists_avg,
+              "\n------------------------------------------")

@@ -23,4 +23,5 @@ class Profile(APIContract):
               " (Wins - ", self.competitive_win_total, " / Losses - ", self.competitive_loss_total, ")",
               "\nCompetitive rank: ", self.competitive_rank,
               "\nTotal wins (quick games): ", self.quick_win_total,
-              "\n", self.avatar)
+              "\n", self.avatar,
+              "\n------------------------------------------")
