@@ -16,6 +16,7 @@ try:
     mode = sys.argv[5] if len(sys.argv) > 5 else 'quickplay'
 except IndexError as e:
     print("Invalid Arguments.\n" + str(e))
+    exit(1)
 #
 # Cleaning Params
 try:
@@ -23,6 +24,7 @@ try:
     tag = tag.replace("#", "-")
 except Exception as e:
     print("Stat retrieval failed. Incorrect command/s.\n" + str(e))
+    exit(1)
 #
 # Call API Wrappers
 if command in HELP:
@@ -41,3 +43,4 @@ elif command in ALL_HEROES_STATS:
     print(pl.get_all_heroes_stats(tag, platform, region, mode).display_api_obj())
 else:
     print("Stat retrieval failed. Incorrect command/s")
+    exit(1)
