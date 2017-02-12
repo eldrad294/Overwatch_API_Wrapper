@@ -16,8 +16,10 @@ def get_achievements(tag, platform="pc", region="eu"):
         return result
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
+        exit(1)
     except Exception as e:
         print("An error occurred:\n " + str(e))
+        exit(1)
 #
 def get_platforms(tag, platform="pc", region="eu"):
     """ API wrapper method which returns a platform object """
@@ -34,8 +36,10 @@ def get_platforms(tag, platform="pc", region="eu"):
         return platform_list
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
+        exit(1)
     except Exception as e:
         print("An error occurred:\n " + str(e))
+        exit(1)
 #
 def get_profile(tag, platform="pc", region="eu"):
     """ API wrapper method which returns a profile object """
@@ -55,8 +59,10 @@ def get_profile(tag, platform="pc", region="eu"):
         return result
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + e)
+        exit(1)
     except Exception as e:
         print("An error occurred:\n " + str(e))
+        exit(1)
 #
 def get_all_heroes_stats(tag, platform="pc", region="eu", mode="quickplay"):
     """ API wrapper method which  returns an all_heroes object """
@@ -116,5 +122,7 @@ def get_all_heroes_stats(tag, platform="pc", region="eu", mode="quickplay"):
         return result
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + str(e))
+        exit(1)
     except Exception as e:
         print("An error occurred:\n " + str(e))
+        exit(1)

@@ -6,7 +6,7 @@ ow command battletag platform region mode
 --------------------------------------------
 ow [compulsory]
 command {getpatchnotes, getachievements, getplatforms, getprofiles, getheroesstats, gethelp} [compulsory]
-battletag {eg: test#1234} [compulsory except for getpatchnotes, gethelp]
+battletag {eg: test#1234, latest} [compulsory except for getpatchnotes, gethelp]
 platform {pc, xbl, psn} [compulsory except for getpatchnotes, gethelp]
 region {eu, us, kr, cn, global} [compulsory except for getpatchnotes, gethelp]
 mode {quickplay, competitive} [optional except for getheroesstats]
