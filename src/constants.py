@@ -1,6 +1,6 @@
 # Codecs
 import codecs
-codec = codecs.getreader("UTF-8")
+codec = codecs.getreader("utf-8")
 #
 # URLS
 URL = "https://api.lootbox.eu/"
@@ -12,3 +12,6 @@ ACHIEVEMENTS = ("get_achievements", "getachievement", "getachievements", "achiev
 PLATFORMS = ("get_platforms", "getplatform", "getplatforms","platforms","platform", "pl")
 PROFILES = ("get_profile", "getprofile", "getprofiles", "profile", "profiles", "pr")
 ALL_HEROES_STATS = ("get_all_heroes_stats", "get_heroes_stats", "get_heroe_stats", "getheroesstats", "getallheroestats", "getallheroetats", "getstats", "ghs")
+#
+# Constants
+LATEST = ("latest", "lat")

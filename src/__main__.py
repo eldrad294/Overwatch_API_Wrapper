@@ -21,7 +21,7 @@ except IndexError as e:
 # Cleaning Params
 try:
     command = str.strip(str.lower(command))
-    if tag is not None:
+    if tag is not None and tag is not LATEST:
         tag = str.lower(tag)
         tag = tag.replace("#", "-")
 except Exception as e:
@@ -32,11 +32,11 @@ except Exception as e:
 if command in HELP:
     util.get_help()
 elif command in PATCH_NOTES:
-    if tag in 'latest':
+    if tag is not None and tag is not LATEST:
         print(pn.get_patch_notes()[0].display_api_obj())
     else:
-        for patch_note in pn.get_patch_notes():
-            print(patch_note.display_api_obj())
+        for patchnote in pn.get_patch_notes():
+            print(patchnote.display_api_obj())
 elif command in ACHIEVEMENTS:
     print(pl.get_achievements(tag, platform, region).display_api_obj())
 elif command in PLATFORMS:
