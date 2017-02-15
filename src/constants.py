@@ -14,4 +14,4 @@ PROFILES = ("get_profile", "getprofile", "getprofiles", "profile", "profiles", "
 ALL_HEROES_STATS = ("get_all_heroes_stats", "get_heroes_stats", "get_heroe_stats", "getheroesstats", "getallheroestats", "getallheroetats", "getstats", "ghs")
 #
 # Constants
-LATEST = ("latest", "lat")
+LATEST = ("latest", "lat", "LATEST", "LAT")

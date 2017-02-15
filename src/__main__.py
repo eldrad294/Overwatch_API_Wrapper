@@ -22,7 +22,6 @@ except IndexError as e:
 try:
     command = str.strip(str.lower(command))
     if tag is not None and tag is not LATEST:
-        tag = str.lower(tag)
         tag = tag.replace("#", "-")
 except Exception as e:
     print("Stat retrieval failed. Incorrect command/s.\n" + str(e))
