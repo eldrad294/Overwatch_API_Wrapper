@@ -3,8 +3,8 @@
 block_cipher = None
 
 
-a = Analysis(['src/__main__.py'],
-             pathex=['/home/eldrad/Projects/Overwatch_Wrapper'],
+a = Analysis(['src\\__main__.py'],
+             pathex=['C:\\Users\\gabriel.sammut\\Documents\\Overwatch_API_Wrapper'],
              binaries=[],
              datas=[],
              hiddenimports=[],

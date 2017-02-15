@@ -1,15 +1,18 @@
-missing module named 'org.python' - imported by pickle, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py, xml.sax
-missing module named ce - imported by os, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-excluded module named _frozen_importlib - imported by importlib, importlib.abc, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-missing module named _winreg - imported by platform, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
+missing module named resource - imported by posix, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named posix - imported by os, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named _posixsubprocess - imported by subprocess, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named 'org.python' - imported by pickle, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py, xml.sax
+missing module named ce - imported by os, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named readline - imported by cmd, code, pdb, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+excluded module named _frozen_importlib - imported by importlib, importlib.abc, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named _frozen_importlib_external - imported by importlib._bootstrap, importlib, importlib.abc, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named _winreg - imported by platform, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
 missing module named _scproxy - imported by urllib.request
-missing module named java - imported by platform, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-missing module named 'java.lang' - imported by platform, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py, xml.sax._exceptions
-missing module named vms_lib - imported by platform, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-missing module named msvcrt - imported by subprocess, getpass, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-missing module named _winapi - imported by subprocess, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-missing module named winreg - imported by platform, mimetypes, urllib.request, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-missing module named _dummy_threading - imported by dummy_threading, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-missing module named nt - imported by os, ntpath, shutil, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
-missing module named org - imported by copy, /home/eldrad/Projects/Overwatch_Wrapper/src/__main__.py
+missing module named java - imported by platform, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named 'java.lang' - imported by platform, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py, xml.sax._exceptions
+missing module named vms_lib - imported by platform, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named termios - imported by tty, getpass, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named grp - imported by shutil, tarfile, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named _dummy_threading - imported by dummy_threading, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named org - imported by copy, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
+missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, netrc, getpass, C:\Users\gabriel.sammut\Documents\Overwatch_API_Wrapper\src\__main__.py
