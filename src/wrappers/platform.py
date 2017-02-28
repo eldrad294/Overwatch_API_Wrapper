@@ -3,13 +3,15 @@ import urllib
 from urllib.request import urlopen
 import src.constants as const
 from src.modules import achievements as a, platforms as pl, profile as pr, all_heroes as ah
+import ssl
 #
 def get_achievements(tag, platform="pc", region="eu"):
     """ API wrapper method which returns an achievement object """
     #
     try:
+        context = ssl._create_unverified_context()
         achievements = json.load(
-            const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/achievements")))
+            const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/achievements", context=context)))
         result = a.Achievements(achievements['totalNumberOfAchievements'],
                                 achievements['numberOfAchievementsCompleted'],
                                 achievements['finishedAchievements'])
@@ -26,8 +28,9 @@ def get_platforms(tag, platform="pc", region="eu"):
     #
     platform_list = []
     try:
+        context = ssl._create_unverified_context()
         platforms = json.load(
-            const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/get-platforms")))
+            const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/get-platforms", context=context)))
         for platform in platforms['profile']:
             result = pl.Platforms(platform['platform'],
                                  platform['region'],
@@ -45,8 +48,9 @@ def get_profile(tag, platform="pc", region="eu"):
     """ API wrapper method which returns a profile object """
     #
     try:
+        context = ssl._create_unverified_context()
         profile = json.load(
-            const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/profile")))
+            const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/profile", context=context)))
         result = pr.Profile(profile['data']['username'],
                             profile['data']['level'],
                             profile['data']['games']['quick']['wins'],
@@ -68,8 +72,9 @@ def get_all_heroes_stats(tag, platform="pc", region="eu", mode="quickplay"):
     """ API wrapper method which  returns an all_heroes object """
     #
     try:
+        context = ssl._create_unverified_context()
         all_heroes = json.load(
-            const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/" + mode + "/allHeroes/")))
+            const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/" + mode + "/allHeroes/", context=context)))
         result = ah.AllHeroes(all_heroes['MeleeFinalBlows'],
                               all_heroes['SoloKills'],
                               all_heroes['ObjectiveKills'],

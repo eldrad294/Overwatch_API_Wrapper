@@ -3,15 +3,15 @@ import urllib
 from urllib.request import urlopen
 import src.constants as const
 from src.modules import patch_notes as pn
-
-
+import ssl
 #
 def get_patch_notes():
     """ API wrapper method which returns a list of patch noteobjects """
     #
     patch_note_list =[]
     try:
-        patch_notes = json.load(const.codec(urlopen(const.URL + "patch_notes")))
+        context = ssl._create_unverified_context()
+        patch_notes = json.load(const.codec(urlopen(const.URL + "patch_notes", context=context)))
         for patch_note in patch_notes['patchNotes']:
             result = pn.PatchNotes(patch_note['program'],
                                    patch_note['locale'],

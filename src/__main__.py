@@ -3,7 +3,8 @@ sys.path.append("..")
 from src.constants import *
 import src.wrappers.patch_notes as pn
 import src.wrappers.platform as pl
-import src.utils as util
+import src.utils.help as util
+from utils import html_stripper as hs
 #
 # Param Checks
 try:
@@ -31,20 +32,20 @@ except Exception as e:
 if command in HELP:
     util.get_help()
 elif command in PATCH_NOTES:
-    if tag is not None and tag is not LATEST:
-        print(pn.get_patch_notes()[0].display_api_obj())
+    if tag is not None and tag in LATEST:
+        pn.get_patch_notes()[0].display_api_obj()
     else:
         for patchnote in pn.get_patch_notes():
-            print(patchnote.display_api_obj())
+            patchnote.display_api_obj()
 elif command in ACHIEVEMENTS:
-    print(pl.get_achievements(tag, platform, region).display_api_obj())
+    pl.get_achievements(tag, platform, region).display_api_obj()
 elif command in PLATFORMS:
     for platform in pl.get_platforms(tag, platform, region):
-        print(platform.display_api_obj())
+        platform.display_api_obj()
 elif command in PROFILES:
-    print(pl.get_profile(tag, platform, region).display_api_obj())
+    pl.get_profile(tag, platform, region).display_api_obj()
 elif command in ALL_HEROES_STATS:
-    print(pl.get_all_heroes_stats(tag, platform, region, mode).display_api_obj())
+    pl.get_all_heroes_stats(tag, platform, region, mode).display_api_obj()
 else:
     print("Stat retrieval failed. Incorrect command/s")
     exit(1)

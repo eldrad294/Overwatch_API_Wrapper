@@ -1,22 +1,23 @@
 from src.contracts.api_contract import APIContract
+from utils import html_stripper as hs
 #
 class PatchNotes(APIContract):
     #
     def __init__(self, program, locale, type, patch_version, status, detail, build_number, publish, created, updated,
                  develop, slug, version):
-        self.program = program
-        self.locale = locale
-        self.type = type
-        self.patch_version = patch_version
-        self.status = status
-        self.detail = detail
-        self.build_number = build_number
-        self.publish = publish
-        self.created = created
-        self.updated = updated
-        self.develop = develop
-        self.slug = slug
-        self.version = version
+        self.program = hs.html_stripper(program)
+        self.locale = hs.html_stripper(locale)
+        self.type = hs.html_stripper(type)
+        self.patch_version = hs.html_stripper(patch_version)
+        self.status = hs.html_stripper(status)
+        self.detail = hs.html_stripper(detail)
+        self.build_number = hs.html_stripper(build_number)
+        self.publish = hs.html_stripper(publish)
+        self.created = hs.html_stripper(created)
+        self.updated = hs.html_stripper(updated)
+        self.develop = hs.html_stripper(develop)
+        self.slug = hs.html_stripper(slug)
+        self.version = hs.html_stripper(version)
     #
     def display_api_obj(self):
         print("Program: ", self.program,
