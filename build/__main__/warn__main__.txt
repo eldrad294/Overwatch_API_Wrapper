@@ -16,4 +16,3 @@ missing module named grp - imported by shutil, tarfile, D:\Projects\Overwatch_AP
 missing module named _dummy_threading - imported by dummy_threading, D:\Projects\Overwatch_API_Wrapper\src\__main__.py
 missing module named org - imported by copy, D:\Projects\Overwatch_API_Wrapper\src\__main__.py
 missing module named pwd - imported by posixpath, shutil, tarfile, http.server, webbrowser, netrc, getpass, D:\Projects\Overwatch_API_Wrapper\src\__main__.py
-missing module named utils - imported by src.modules.patch_notes, src.modules.platforms, src.modules.achievements, src.modules.all_heroes, src.modules.profile, D:\Projects\Overwatch_API_Wrapper\src\__main__.py

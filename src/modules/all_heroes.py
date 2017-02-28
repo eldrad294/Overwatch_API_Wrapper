@@ -1,5 +1,5 @@
 from src.contracts.api_contract import APIContract
-from utils import html_stripper as hs
+from src.utils import html_stripper as hs
 #
 class AllHeroes(APIContract):
     #

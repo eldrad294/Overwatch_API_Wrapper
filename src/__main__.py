@@ -3,8 +3,7 @@ sys.path.append("..")
 from src.constants import *
 import src.wrappers.patch_notes as pn
 import src.wrappers.platform as pl
-import src.utils.help as util
-from utils import html_stripper as hs
+from src.utils import help
 #
 # Param Checks
 try:
@@ -30,7 +29,7 @@ except Exception as e:
 #
 # Call API Wrappers
 if command in HELP:
-    util.get_help()
+    help.get_help()
 elif command in PATCH_NOTES:
     if tag is not None and tag in LATEST:
         pn.get_patch_notes()[0].display_api_obj()
