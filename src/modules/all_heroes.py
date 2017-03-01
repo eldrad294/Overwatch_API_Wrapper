@@ -61,7 +61,7 @@ class AllHeroes(APIContract):
         self.defensive_assists_avg = hs.html_stripper(defensive_assists_avg)
         self.offensive_assists = hs.html_stripper(offensive_assists)
         self.offensive_assists_avg = hs.html_stripper(offensive_assists_avg)
-#
+    #
     def display_api_obj(self):
         print("Melee Final Blows: ", self.melee_final_blows,
               "\nSolo Kills: ", self.solo_kills,
@@ -94,7 +94,7 @@ class AllHeroes(APIContract):
               "\nDamage Done Average: ", self.damage_done_avg,
               "\nEliminations Average: ", self.eliminations_avg,
               "\nDeaths: ", self.deaths,
-              "\nEnvironmental Deaths: ",self.environmental_deaths,
+              "\nEnvironmental Deaths: ", self.environmental_deaths,
               "\nCards: ", self.cards,
               "\nMedals: ", self.medals,
               "\nGold Medals: ", self.medals_gold,
@@ -112,4 +112,16 @@ class AllHeroes(APIContract):
               "\nDefensive Assists Average: ", self.defensive_assists_avg,
               "\nOffensive Assists: ", self.offensive_assists,
               "\nOffensive Assists Average", self.offensive_assists_avg,
+              "\n------------------------------------------")
+    #
+    def get_medals(self):
+        print("Medals: ", self.medals,
+              "\nGold Medals: ", self.medals_gold,
+              "\nSilver Medals: ", self.medals_silver,
+              "\nBronze Medals: ", self.medals_bronze,
+              "\n------------------------------------------")
+    #
+    def get_kills(self):
+        print("Multi Kill Best: ", self.multi_kill_best,
+              "\nSolo Kills Best: ", self.solo_kills_mig,
               "\n------------------------------------------")

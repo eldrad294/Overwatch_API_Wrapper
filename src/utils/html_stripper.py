@@ -1,6 +1,9 @@
 def html_stripper(content):
     """ Receives html document and removes any html elements inside it """
     #
+    if content is None:
+        return None
+    #
     content = str(content)
     html_elements = ["<br>", "<br/>", "<br />", "<p>", "</p>", "<h1>", "</h1>", "<h2>", "</h2>", "<ul>", "</ul>",
                      "<li>", "</li>", "<strong>", "</strong>", "<a>", "</a>", "<a href=", "target=", "\"_blank", "\">"]
