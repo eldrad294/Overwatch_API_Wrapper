@@ -21,7 +21,7 @@ except IndexError as e:
 # Cleaning Params
 try:
     command = str.strip(str.lower(command))
-    if tag is not None and tag is not LATEST:
+    if tag is not None and tag is not ALL:
         tag = tag.replace("#", "-")
 except Exception as e:
     print("Stat retrieval failed. Incorrect command/s.\n" + str(e))
@@ -31,11 +31,11 @@ except Exception as e:
 if command in HELP:
     help.get_help()
 elif command in PATCH_NOTES:
-    if tag is not None and tag in LATEST:
-        pn.get_patch_notes()[0].display_api_obj()
-    else:
-        for patchnote in pn.get_patch_notes():
+    if tag is not None and tag in ALL:
+        for patchnote in pn.get_patch_notes(platform):
             patchnote.display_api_obj()
+    else:
+        pn.get_patch_notes(platform)[0].display_api_obj()
 elif command in ACHIEVEMENTS:
     pl.get_achievements(tag, platform, region).display_api_obj()
 elif command in PLATFORMS:

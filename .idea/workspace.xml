@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8adc6472-78b6-45c1-92c9-9d9314a88cd4" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/modules/hero.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/__main__.py" afterPath="$PROJECT_DIR$/src/__main__.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants.py" afterPath="$PROJECT_DIR$/src/constants.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/modules/all_heroes.py" afterPath="$PROJECT_DIR$/src/modules/all_heroes.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/help.py" afterPath="$PROJECT_DIR$/src/utils/help.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/wrappers/patch_notes.py" afterPath="$PROJECT_DIR$/src/wrappers/patch_notes.py" />
     </list>
     <ignored path="Overwatch_API_Wrapper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -19,16 +21,48 @@
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
   </component>
+  <component name="DockManager">
+    <window id="3">
+      <content type="file-editors">
+        <state>
+          <leaf>
+            <file leaf-file-name="achievements.py" pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/modules/achievements.py">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="238">
+                    <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
+                    <folding>
+                      <element signature="e#0#50#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="Overwatch_API_Wrapper" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="constants.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/constants.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="__main__.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/__main__.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
+            <state relative-caret-position="357">
               <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
               <folding />
             </state>
@@ -38,33 +72,39 @@
       <file leaf-file-name="help.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/utils/help.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="8" column="85" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
+            <state relative-caret-position="85">
+              <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="achievements.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/modules/achievements.py">
+      <file leaf-file-name="patch_notes.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/wrappers/patch_notes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="61" selection-start-line="14" selection-start-column="61" selection-end-line="14" selection-end-column="61" />
-              <folding>
-                <element signature="e#0#50#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="493">
+              <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="platform.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/wrappers/platform.py">
+      <file leaf-file-name="all_heroes.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/modules/all_heroes.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="654">
-              <caret line="116" column="60" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
-              <folding>
-                <element signature="e#0#11#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="952">
+              <caret line="119" column="54" selection-start-line="119" selection-start-column="54" selection-end-line="119" selection-end-column="54" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hero.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/modules/hero.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -121,13 +161,14 @@
         <option value="$PROJECT_DIR$/src/modules/platforms.py" />
         <option value="$PROJECT_DIR$/src/modules/profile.py" />
         <option value="$PROJECT_DIR$/src/modules/achievements.py" />
-        <option value="$PROJECT_DIR$/src/wrappers/patch_notes.py" />
         <option value="$PROJECT_DIR$/src/utils/html_stripper.py" />
         <option value="$PROJECT_DIR$/src/wrappers/platform.py" />
         <option value="$PROJECT_DIR$/src/modules/all_heroes.py" />
+        <option value="$PROJECT_DIR$/src/utils/help.py" />
+        <option value="$PROJECT_DIR$/src/wrappers/patch_notes.py" />
         <option value="$PROJECT_DIR$/src/constants.py" />
         <option value="$PROJECT_DIR$/src/__main__.py" />
-        <option value="$PROJECT_DIR$/src/utils/help.py" />
+        <option value="$PROJECT_DIR$/src/modules/hero.py" />
       </list>
     </option>
   </component>
@@ -210,25 +251,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="wrappers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Overwatch_API_Wrapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Overwatch_API_Wrapper" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="utils" />
+              <option name="myItemId" value="modules" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -486,16 +509,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/wrappers/patch_notes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="21" column="59" selection-start-line="21" selection-start-column="59" selection-end-line="21" selection-end-column="59" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/constants.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="72">
@@ -517,7 +530,7 @@
         <state relative-caret-position="126">
           <caret line="11" column="100" selection-start-line="11" selection-start-column="100" selection-end-line="11" selection-end-column="100" />
           <folding>
-            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -802,16 +815,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wrappers/patch_notes.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="1" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#11#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/html_stripper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -820,36 +823,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/modules/all_heroes.py">
+    <entry file="file://$PROJECT_DIR$/src/wrappers/platform.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="119" column="54" selection-start-line="119" selection-start-column="54" selection-end-line="119" selection-end-column="54" />
+        <state relative-caret-position="654">
+          <caret line="116" column="60" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/__main__.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/utils/help.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="8" column="85" selection-start-line="8" selection-start-column="85" selection-end-line="8" selection-end-column="85" />
+        <state relative-caret-position="85">
+          <caret line="5" column="55" selection-start-line="5" selection-start-column="55" selection-end-line="5" selection-end-column="55" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/constants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/__main__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="544">
-          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        <state relative-caret-position="357">
+          <caret line="21" column="13" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
           <folding />
         </state>
       </provider>
@@ -864,13 +867,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/wrappers/platform.py">
+    <entry file="file://$PROJECT_DIR$/src/wrappers/patch_notes.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="654">
-          <caret line="116" column="60" selection-start-line="116" selection-start-column="60" selection-end-line="116" selection-end-column="60" />
-          <folding>
-            <element signature="e#0#11#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="493">
+          <caret line="34" column="26" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/all_heroes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="952">
+          <caret line="119" column="54" selection-start-line="119" selection-start-column="54" selection-end-line="119" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/modules/hero.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>

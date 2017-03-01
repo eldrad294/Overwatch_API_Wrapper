@@ -19,4 +19,4 @@ GET_GAMES = ("getgames", "get_games", "gg")
 GET_OBJECTIVES = ("getobjectives", "get_objectives", "go")
 #
 # Constants
-LATEST = ("latest", "lat", "LATEST", "LAT")
+ALL = ("all")

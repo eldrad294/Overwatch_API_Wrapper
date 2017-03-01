@@ -5,7 +5,7 @@ import src.constants as const
 from src.modules import patch_notes as pn
 import ssl
 #
-def get_patch_notes():
+def get_patch_notes(platform):
     """ API wrapper method which returns a list of patch noteobjects """
     #
     patch_note_list =[]
@@ -18,7 +18,8 @@ def get_patch_notes():
                                    patch_note['type'],
                                    patch_note['patchVersion'],
                                    patch_note['status'],
-                                   patch_note['detail'],
+                                   # patch_note['detail'], -- Disabled printing of patch_note['detail'] due to large amount of data being returned
+                                   "https://playoverwatch.com/en-us/game/patch-notes/" + platform + "/#patch-" + str(patch_note['buildNumber']),
                                    patch_note['buildNumber'],
                                    patch_note['publish'],
                                    patch_note['created'],
