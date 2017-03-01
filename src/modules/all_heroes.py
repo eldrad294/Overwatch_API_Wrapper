@@ -102,10 +102,9 @@ class AllHeroes(APIContract):
               "\nBronze Medals: ", self.medals_bronze,
               "\nGames Played: ", self.games_played,
               "\nGames Won: ", self.games_won,
-              "\nTime Spent On Fire: ", self.time_spent_on_fire,
               "\nObjective Time: ", self.objective_time,
               "\nTime Played: ", self.time_played,
-              "\nMelee  Final Blow(MIG): ", self.melee_final_blow_mig,
+              "\nMelee Final Blow(MIG): ", self.melee_final_blow_mig,
               "\nGames Tied: ", self.games_tied,
               "\nGames Lost: ", self.games_lost,
               "\nDefensive Assists: ", self.defensive_assists,
@@ -122,6 +121,34 @@ class AllHeroes(APIContract):
               "\n------------------------------------------")
     #
     def get_kills(self):
-        print("Multi Kill Best: ", self.multi_kill_best,
+        print("Objective Kills: ", self.objective_kills,
+              "\nEnvironmental Kills: ", self.environmental_kills,
+              "\nSolo Kills: ", self.solo_kills,
               "\nSolo Kills Best: ", self.solo_kills_mig,
+              "\nMulti Kills: ", self.multikills,
+              "\nMulti Kill Best: ", self.multi_kill_best,
+              "\nFinal Blows: ", self.final_blows,
+              "\nEliminations: ", self.eliminations,
+              "\n------------------------------------------")
+    #
+    def get_time(self):
+        print("Time Spent On Fire: ", self.time_spent_on_fire,
+              "\nTime Spent On Fire Average: ", self.time_spent_on_fire_avg,
+              "\nObjective Time: ", self.objective_time,
+              "\nTime Played: ", self.time_played,
+              "\n------------------------------------------")
+    #
+    def get_games(self):
+        print("Games Won: ", self.games_won,
+              "\nGames Tied: ", self.games_tied,
+              "\nGames Lost: ", self.games_lost,
+              "\n------------------------------------------")
+    #
+    def get_objectives(self):
+        print("Objective Kills: ", self.objective_kills,
+              "\nObjective Kills (MIG): ", self.objective_kills_mig,
+              "\nObjective Kills Average: ", self.objective_kills_avg,
+              "\nObjective Time (MIG): ", self.objective_time_mig,
+              "\nObjective Time Average: ", self.objective_time_avg,
+              "\nObjective Time: ", self.objective_time,
               "\n------------------------------------------")

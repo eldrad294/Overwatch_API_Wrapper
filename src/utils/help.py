@@ -5,7 +5,7 @@ def get_help():
     print("ow command battletag platform region mode")
     print("------------------------------------------")
     print("ow [compulsory]")
-    print("command {getpatchnotes, getachievements, getplatforms, getprofiles, getheroesstats, gethelp} [compulsory]")
+    print("command {getpatchnotes, getachievements, getplatforms, getprofiles, getheroesstats/getmedals/getkills/gettime/getgames/getobjectives, gethelp} [compulsory]")
     print("battletag {eg: test#1212} [compulsory except for getpatchnotes, gethelp]")
     print("platform {pc, xbl, psn} [compulsory except for getpatchnotes, gethelp]")
     print("region {eu, us, kr, cn, global} [compulsory except for getpatchnotes, gethelp]")
