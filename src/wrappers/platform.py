@@ -5,6 +5,7 @@ import src.constants as const
 from src.modules import achievements as a, platforms as pl, profile as pr, all_heroes as ah, hero as h
 import ssl
 import src.utils.dictionary_checker as dc
+from src.Exceptions.custom_exceptions import *
 #
 def get_achievements(tag, platform="pc", region="eu"):
     """ API wrapper method which returns an achievement object """
@@ -141,59 +142,67 @@ def get_heroes_stats(tag, hero, platform="pc", region="eu", mode="quickplay"):
         hero_stats = json.load(
             const.codec(
                 urlopen(const.URL + platform + "/" + region + "/" + tag + "/" + mode + "/hero/" + hero + "/", context=context)))
+        #
+        if hero not in hero_stats[hero]:
+            raise HeroNotFound
+        #
         result = h.Hero(
-            dc.get_dic_obj(hero_stats, "Eliminations", "Elimination"),
-            dc.get_dic_obj(hero_stats, "FinalBlows", "FinalBlow"),
-            dc.get_dic_obj(hero_stats, "SoloKills", "SoloKill"),
-            dc.get_dic_obj(hero_stats, "ShotsFired", "ShotFired"),
-            dc.get_dic_obj(hero_stats, "ShotsHit", "ShotHit"),
-            dc.get_dic_obj(hero_stats, "CriticalHits", "CriticalHit"),
-            dc.get_dic_obj(hero_stats, "DamageDone"),
-            dc.get_dic_obj(hero_stats, "ObjectiveKills", "ObjectiveKills"),
-            dc.get_dic_obj(hero_stats, "Multikill", "Multikills"),
-            dc.get_dic_obj(hero_stats, "CriticalHitsperMinute", "CriticalHitperMinute"),
-            dc.get_dic_obj(hero_stats, "CriticalHitAccuracy"),
-            dc.get_dic_obj(hero_stats, "EliminationsperLife", "EliminationperLife"),
-            dc.get_dic_obj(hero_stats, "WeaponAccuracy"),
-            dc.get_dic_obj(hero_stats, "TeleporterPadsDestroyed", "TeleporterPadDestroyed"),
-            dc.get_dic_obj(hero_stats, "TurretsDestroyed", "TurretDestroyed"),
-            dc.get_dic_obj(hero_stats, "SelfHealing"),
-            dc.get_dic_obj(hero_stats, "Eliminations-MostinLife", "Elimination-MostinLife"),
-            dc.get_dic_obj(hero_stats, "DamageDone-MostinLife"),
-            dc.get_dic_obj(hero_stats, "WeaponAccuracy-BestinGame"),
-            dc.get_dic_obj(hero_stats, "KillStreak-Best"),
-            dc.get_dic_obj(hero_stats, "DamageDone-MostinGame"),
-            dc.get_dic_obj(hero_stats, "Eliminations-MostinGame", "Elimination-MostinGame"),
-            dc.get_dic_obj(hero_stats, "FinalBlows-MostinGame", "FinalBlow-MostinGame"),
-            dc.get_dic_obj(hero_stats, "ObjectiveKills-MostinGame", "ObjectiveKill-MostinGame"),
-            dc.get_dic_obj(hero_stats, "ObjectiveTime-MostinGame"),
-            dc.get_dic_obj(hero_stats, "SoloKills-MostinGame", "SoloKill-MostinGame"),
-            dc.get_dic_obj(hero_stats, "CriticalHits-MostinGame", "CriticalHit-MostinGame"),
-            dc.get_dic_obj(hero_stats, "CriticalHits-MostinLife", "CrtiticalHit-MostinLife"),
-            dc.get_dic_obj(hero_stats, "SelfHealing-Average"),
-            dc.get_dic_obj(hero_stats, "Deaths-Average", "Death-Average"),
-            dc.get_dic_obj(hero_stats, "SoloKills-Average", "SoloKill-Average"),
-            dc.get_dic_obj(hero_stats, "ObjectiveTime-Average"),
-            dc.get_dic_obj(hero_stats, "ObjectiveKills-Average", "ObjectiveKill-Average"),
-            dc.get_dic_obj(hero_stats, "FinalBlows-Average", "FinalBlow-Average"),
-            dc.get_dic_obj(hero_stats, "Eliminations-Average", "Elimination-Average"),
-            dc.get_dic_obj(hero_stats, "DamageDone-Average"),
-            dc.get_dic_obj(hero_stats, "Deaths", "Death"),
-            dc.get_dic_obj(hero_stats, "EnvironmentalDeaths", "EnvironmentalDeath"),
-            dc.get_dic_obj(hero_stats, "Medals-Bronze", "Medal-Bronze"),
-            dc.get_dic_obj(hero_stats, "Medals-Silver", "Medal-Silver"),
-            dc.get_dic_obj(hero_stats, "Medals-Gold", "Medal-Gold"),
-            dc.get_dic_obj(hero_stats, "Medals", "Medal"),
-            dc.get_dic_obj(hero_stats, "Cards", "Card"),
-            dc.get_dic_obj(hero_stats, "TimePlayed"),
-            dc.get_dic_obj(hero_stats, "GamesWon", "GameWon"),
-            dc.get_dic_obj(hero_stats, "ObjectiveTime"),
-            dc.get_dic_obj(hero_stats, "TimeSpentOnFire"),
-            dc.get_dic_obj(hero_stats, "Multikill-Best"),
+            dc.get_dic_obj(hero_stats[hero], "Eliminations", "Elimination"),
+            dc.get_dic_obj(hero_stats[hero], "FinalBlows", "FinalBlow"),
+            dc.get_dic_obj(hero_stats[hero], "SoloKills", "SoloKill"),
+            dc.get_dic_obj(hero_stats[hero], "ShotsFired", "ShotFired"),
+            dc.get_dic_obj(hero_stats[hero], "ShotsHit", "ShotHit"),
+            dc.get_dic_obj(hero_stats[hero], "CriticalHits", "CriticalHit"),
+            dc.get_dic_obj(hero_stats[hero], "DamageDone"),
+            dc.get_dic_obj(hero_stats[hero], "ObjectiveKills", "ObjectiveKills"),
+            dc.get_dic_obj(hero_stats[hero], "Multikill", "Multikills"),
+            dc.get_dic_obj(hero_stats[hero], "CriticalHitsperMinute", "CriticalHitperMinute"),
+            dc.get_dic_obj(hero_stats[hero], "CriticalHitAccuracy"),
+            dc.get_dic_obj(hero_stats[hero], "EliminationsperLife", "EliminationperLife"),
+            dc.get_dic_obj(hero_stats[hero], "WeaponAccuracy"),
+            dc.get_dic_obj(hero_stats[hero], "TeleporterPadsDestroyed", "TeleporterPadDestroyed"),
+            dc.get_dic_obj(hero_stats[hero], "TurretsDestroyed", "TurretDestroyed"),
+            dc.get_dic_obj(hero_stats[hero], "SelfHealing"),
+            dc.get_dic_obj(hero_stats[hero], "Eliminations-MostinLife", "Elimination-MostinLife"),
+            dc.get_dic_obj(hero_stats[hero], "EliminationsperLife", "EliminationperLife"),
+            dc.get_dic_obj(hero_stats[hero], "DamageDone-MostinLife"),
+            dc.get_dic_obj(hero_stats[hero], "WeaponAccuracy-BestinGame"),
+            dc.get_dic_obj(hero_stats[hero], "KillStreak-Best"),
+            dc.get_dic_obj(hero_stats[hero], "DamageDone-MostinGame"),
+            dc.get_dic_obj(hero_stats[hero], "Eliminations-MostinGame", "Elimination-MostinGame"),
+            dc.get_dic_obj(hero_stats[hero], "FinalBlows-MostinGame", "FinalBlow-MostinGame"),
+            dc.get_dic_obj(hero_stats[hero], "ObjectiveKills-MostinGame", "ObjectiveKill-MostinGame"),
+            dc.get_dic_obj(hero_stats[hero], "ObjectiveTime-MostinGame"),
+            dc.get_dic_obj(hero_stats[hero], "SoloKills-MostinGame", "SoloKill-MostinGame"),
+            dc.get_dic_obj(hero_stats[hero], "CriticalHits-MostinGame", "CriticalHit-MostinGame"),
+            dc.get_dic_obj(hero_stats[hero], "CriticalHits-MostinLife", "CrtiticalHit-MostinLife"),
+            dc.get_dic_obj(hero_stats[hero], "SelfHealing-Average"),
+            dc.get_dic_obj(hero_stats[hero], "Deaths-Average", "Death-Average"),
+            dc.get_dic_obj(hero_stats[hero], "SoloKills-Average", "SoloKill-Average"),
+            dc.get_dic_obj(hero_stats[hero], "ObjectiveTime-Average"),
+            dc.get_dic_obj(hero_stats[hero], "ObjectiveKills-Average", "ObjectiveKill-Average"),
+            dc.get_dic_obj(hero_stats[hero], "FinalBlows-Average", "FinalBlow-Average"),
+            dc.get_dic_obj(hero_stats[hero], "Eliminations-Average", "Elimination-Average"),
+            dc.get_dic_obj(hero_stats[hero], "DamageDone-Average"),
+            dc.get_dic_obj(hero_stats[hero], "Deaths", "Death"),
+            dc.get_dic_obj(hero_stats[hero], "EnvironmentalDeaths", "EnvironmentalDeath"),
+            dc.get_dic_obj(hero_stats[hero], "Medals-Bronze", "Medal-Bronze"),
+            dc.get_dic_obj(hero_stats[hero], "Medals-Silver", "Medal-Silver"),
+            dc.get_dic_obj(hero_stats[hero], "Medals-Gold", "Medal-Gold"),
+            dc.get_dic_obj(hero_stats[hero], "Medals", "Medal"),
+            dc.get_dic_obj(hero_stats[hero], "Cards", "Card"),
+            dc.get_dic_obj(hero_stats[hero], "TimePlayed"),
+            dc.get_dic_obj(hero_stats[hero], "GamesWon", "GameWon"),
+            dc.get_dic_obj(hero_stats[hero], "ObjectiveTime"),
+            dc.get_dic_obj(hero_stats[hero], "TimeSpentOnFire"),
+            dc.get_dic_obj(hero_stats[hero], "Multikill-Best"),
         )
         return result
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + str(e))
+        exit(1)
+    except HeroNotFound as e:
+        print("An error occurred when fetching stats:\nThis hero does not exist. Make sure you have input a valid hero name.")
         exit(1)
     except Exception as e:
         print("An error occurred:\n " + str(e))
