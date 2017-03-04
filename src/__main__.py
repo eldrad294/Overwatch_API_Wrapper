@@ -4,6 +4,7 @@ from src.constants import *
 import src.wrappers.patch_notes as pn
 import src.wrappers.platform as pl
 from src.utils import help
+from src.utils import hero_name_formatter as hnf
 #
 # Param Checks
 try:
@@ -25,6 +26,9 @@ try:
     command = str.strip(str.lower(command))
     if tag is not None and tag is not ALL:
         tag = tag.replace("#", "-")
+    #
+    if hero is not None:
+        hero = hnf.hero_name_formatter(hero)
 except Exception as e:
     print("Stat retrieval failed. Incorrect command/s.\n" + str(e))
     exit(1)

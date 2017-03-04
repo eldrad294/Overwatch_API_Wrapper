@@ -14,6 +14,11 @@ def get_achievements(tag, platform="pc", region="eu"):
         context = ssl._create_unverified_context()
         achievements = json.load(
             const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/achievements", context=context)))
+        #
+        if "error" in achievements:
+            raise BattleTagNotFound(achievements['error'])
+            exit(1)
+        #
         result = a.Achievements(achievements['totalNumberOfAchievements'],
                                 achievements['numberOfAchievementsCompleted'],
                                 achievements['finishedAchievements'])
@@ -33,6 +38,11 @@ def get_platforms(tag, platform="pc", region="eu"):
         context = ssl._create_unverified_context()
         platforms = json.load(
             const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/get-platforms", context=context)))
+        #
+        if "error" in platforms:
+            raise BattleTagNotFound(platforms['error'])
+            exit(1)
+        #
         for platform in platforms['profile']:
             result = pl.Platforms(platform['platform'],
                                  platform['region'],
@@ -53,6 +63,11 @@ def get_profile(tag, platform="pc", region="eu"):
         context = ssl._create_unverified_context()
         profile = json.load(
             const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/profile", context=context)))
+        #
+        if "error" in profile:
+            raise BattleTagNotFound(profile['error'])
+            exit(1)
+        #
         result = pr.Profile(profile['data']['username'],
                             profile['data']['level'],
                             profile['data']['games']['quick']['wins'],
@@ -77,6 +92,11 @@ def get_all_heroes_stats(tag, platform="pc", region="eu", mode="quickplay"):
         context = ssl._create_unverified_context()
         all_heroes = json.load(
             const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/" + mode + "/allHeroes/", context=context)))
+        #
+        if "error" in all_heroes:
+            raise BattleTagNotFound(all_heroes['error'])
+            exit(1)
+        #
         result = ah.AllHeroes(dc.get_dic_obj(all_heroes, "MeleeFinalBlows", "MeleeFinalBlow"),
                               dc.get_dic_obj(all_heroes, "SoloKills", "SoloKill"),
                               dc.get_dic_obj(all_heroes, "ObjectiveKills", "ObjectiveKill"),
@@ -142,9 +162,13 @@ def get_heroes_stats(tag, hero, platform="pc", region="eu", mode="quickplay"):
         hero_stats = json.load(
             const.codec(
                 urlopen(const.URL + platform + "/" + region + "/" + tag + "/" + mode + "/hero/" + hero + "/", context=context)))
+        if "error" in hero_stats:
+            raise BattleTagNotFound(hero_stats['error'])
+            exit(1)
         #
-        if hero not in hero_stats[hero]:
-            raise HeroNotFound
+        if bool(hero_stats[hero]) is False:
+            raise HeroNotFound("An error occurred when fetching stats:\nThis hero does not exist. Make sure you have input a valid hero name.")
+            exit(1)
         #
         result = h.Hero(
             dc.get_dic_obj(hero_stats[hero], "Eliminations", "Elimination"),
@@ -200,9 +224,6 @@ def get_heroes_stats(tag, hero, platform="pc", region="eu", mode="quickplay"):
         return result
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + str(e))
-        exit(1)
-    except HeroNotFound as e:
-        print("An error occurred when fetching stats:\nThis hero does not exist. Make sure you have input a valid hero name.")
         exit(1)
     except Exception as e:
         print("An error occurred:\n " + str(e))
