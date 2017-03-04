@@ -2,8 +2,9 @@ import json
 import urllib
 from urllib.request import urlopen
 import src.constants as const
-from src.modules import achievements as a, platforms as pl, profile as pr, all_heroes as ah
+from src.modules import achievements as a, platforms as pl, profile as pr, all_heroes as ah, hero as h
 import ssl
+import src.utils.dictionary_checker as dc
 #
 def get_achievements(tag, platform="pc", region="eu"):
     """ API wrapper method which returns an achievement object """
@@ -75,55 +76,121 @@ def get_all_heroes_stats(tag, platform="pc", region="eu", mode="quickplay"):
         context = ssl._create_unverified_context()
         all_heroes = json.load(
             const.codec(urlopen(const.URL + platform + "/" + region + "/" + tag + "/" + mode + "/allHeroes/", context=context)))
-        result = ah.AllHeroes(all_heroes['MeleeFinalBlows'] if 'MeleeFinalBlows' in all_heroes else all_heroes['MeleeFinalBlow'],
-                              all_heroes['SoloKills'] if 'SoloKills' in all_heroes else all_heroes['SoloKill'],
-                              all_heroes['ObjectiveKills'] if 'ObjectiveKills' in all_heroes else all_heroes['ObjectiveKill'],
-                              all_heroes['FinalBlows'] if 'FinalBlows' in all_heroes else all_heroes['FinalBlow'],
-                              all_heroes['DamageDone'],
-                              all_heroes['Eliminations'] if 'Eliminations' in all_heroes else all_heroes['Elimination'],
-                              all_heroes['EnvironmentalKills'] if 'EnvironmentalKills' in all_heroes else all_heroes['EnvironmentalKill'],
-                              all_heroes['Multikills'] if 'Multikills' in all_heroes else all_heroes['Multikill'],
-                              all_heroes['HealingDone'],
-                              all_heroes['Eliminations-MostinGame'] if 'Eliminations-MostinGame' in all_heroes else all_heroes['Elimination-MostinGame'],
-                              all_heroes['FinalBlows-MostinGame'] if 'FinalBlows-MostinGame' in all_heroes else all_heroes['FinalBlow-MostinGame'],
-                              all_heroes['DamageDone-MostinGame'],
-                              all_heroes['HealingDone-MostinGame'],
-                              all_heroes['DefensiveAssists-MostinGame'] if 'DefensiveAssists-MostinGame' in all_heroes else (all_heroes['DefensiveAssist-MostinGame'] if 'DefensiveAssist-MostinGame' in all_heroes else None),
-                              all_heroes['OffensiveAssists-MostinGame'] if 'OffensiveAssists-MostinGame' in all_heroes else all_heroes['OffensiveAssist-MostinGame'],
-                              all_heroes['ObjectiveKills-MostinGame'] if 'ObjectiveKills-MostinGame' in all_heroes else all_heroes['ObjectiveKill-MostinGame'],
-                              all_heroes['ObjectiveTime-MostinGame'],
-                              all_heroes['Multikill-Best'],
-                              all_heroes['SoloKills-MostinGame'] if 'SoloKills-MostinGame' in all_heroes else all_heroes['SoloKill-MostinGame'],
-                              all_heroes['TimeSpentonFire-MostinGame'],
-                              all_heroes['MeleeFinalBlows-Average'] if 'MeleeFinalBlows-Average' in all_heroes else all_heroes['MeleeFinalBlow-Average'],
-                              all_heroes['TimeSpentonFire-Average'],
-                              all_heroes['SoloKills-Average'] if 'SoloKills-Average' in all_heroes else all_heroes['SoloKill-Average'],
-                              all_heroes['ObjectiveTime-Average'],
-                              all_heroes['ObjectiveKills-Average'] if 'ObjectiveKills-Average' in all_heroes else all_heroes['ObjectiveKill-Average'],
-                              all_heroes['HealingDone-Average'],
-                              all_heroes['FinalBlows-Average'] if 'FinalBlows-Average' in all_heroes else all_heroes['FinalBlow-Average'],
-                              all_heroes['Deaths-Average'] if 'Deaths-Average' in all_heroes else all_heroes['Death-Average'],
-                              all_heroes['DamageDone-Average'],
-                              all_heroes['Eliminations-Average'] if 'Eliminations-Average' in all_heroes else all_heroes['Elimination-Average'],
-                              all_heroes['Deaths'] if 'Deaths' in all_heroes else all_heroes['Death'],
-                              all_heroes['EnvironmentalDeaths'] if 'EnvironmentalDeaths' in all_heroes else all_heroes['EnvironmentalDeath'],
-                              all_heroes['Cards'] if 'Cards' in all_heroes else all_heroes['Card'],
-                              all_heroes['Medals'] if 'Medals' in all_heroes else all_heroes['Medal'],
-                              all_heroes['Medals-Gold'] if 'Medals-Gold' in all_heroes else all_heroes['Medal-Gold'],
-                              all_heroes['Medals-Silver'] if 'Medals-Silver' in all_heroes else all_heroes['Medal-Silver'],
-                              all_heroes['Medals-Bronze'] if 'Medals-Bronze' in all_heroes else all_heroes['Medal-Bronze'],
-                              all_heroes['GamesPlayed'] if mode == "competitive" else None,
-                              all_heroes['GamesWon'] if 'GamesWon' in all_heroes else all_heroes['GameWon'],
-                              all_heroes['TimeSpentonFire'],
-                              all_heroes['ObjectiveTime'],
-                              all_heroes['TimePlayed'],
-                              all_heroes['MeleeFinalBlows-MostinGame'] if 'MeleeFinalBlows-MostinGame' in all_heroes else all_heroes['MeleeFinalBlow-MostinGame'],
-                              all_heroes['GamesTied'] if mode == "competitive" else None,
-                              all_heroes['GamesLost'] if mode == "competitive" else None,
-                              all_heroes['DefensiveAssists'] if 'DefensiveAssists' in all_heroes else (all_heroes['DefensiveAssist'] if 'DefensiveAssist' in all_heroes else None),
-                              all_heroes['DefensiveAssists-Average'] if 'DefensiveAssists-Average' in all_heroes else None,
-                              all_heroes['OffensiveAssists'] if 'OffensiveAssists' in all_heroes else all_heroes['OffensiveAssist'],
-                              all_heroes['OffensiveAssists-Average'] if 'OffensiveAssists-Average' in all_heroes else all_heroes['OffensiveAssist-Average'])
+        result = ah.AllHeroes(dc.get_dic_obj(all_heroes, "MeleeFinalBlows", "MeleeFinalBlow"),
+                              dc.get_dic_obj(all_heroes, "SoloKills", "SoloKill"),
+                              dc.get_dic_obj(all_heroes, "ObjectiveKills", "ObjectiveKill"),
+                              dc.get_dic_obj(all_heroes, "FinalBlows", "FinalBlow"),
+                              dc.get_dic_obj(all_heroes, "DamageDone"),
+                              dc.get_dic_obj(all_heroes, "Eliminations", "Elimination"),
+                              dc.get_dic_obj(all_heroes, "EnvironmentalKills", "EnvironmentalKill"),
+                              dc.get_dic_obj(all_heroes, "Multikills", "Multikill"),
+                              dc.get_dic_obj(all_heroes, "HealingDone"),
+                              dc.get_dic_obj(all_heroes, "Eliminations-MostinGame", "Elimination-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "FinalBlows-MostinGame", "FinalBlow-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "DamageDone-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "HealingDone-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "DefensiveAssists-MostinGame", "DefensiveAssist-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "OffensiveAssists-MostinGame", "OffensiveAssist-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "ObjectiveKills-MostinGame", "ObjectiveKill-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "ObjectiveTime-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "Multikill-Best"),
+                              dc.get_dic_obj(all_heroes, "SoloKills-MostinGame", "SoloKill-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "TimeSpentonFire-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "MeleeFinalBlows-Average", "MeleeFinalBlow-Average"),
+                              dc.get_dic_obj(all_heroes, "TimeSpentonFire-Average"),
+                              dc.get_dic_obj(all_heroes, "SoloKills-Average", "SoloKill-Average"),
+                              dc.get_dic_obj(all_heroes, "ObjectiveTime-Average"),
+                              dc.get_dic_obj(all_heroes, "ObjectiveKills-Average", "ObjectiveKill-Average"),
+                              dc.get_dic_obj(all_heroes, "HealingDone-Average"),
+                              dc.get_dic_obj(all_heroes, "FinalBlows-Average", "FinalBlow-Average"),
+                              dc.get_dic_obj(all_heroes, "Deaths-Average", "Death-Average"),
+                              dc.get_dic_obj(all_heroes, "DamageDone-Average"),
+                              dc.get_dic_obj(all_heroes, "Eliminations-Average", "Elimination-Average"),
+                              dc.get_dic_obj(all_heroes, "Deaths", "Death"),
+                              dc.get_dic_obj(all_heroes, "EnvironmentalDeaths", "EnvironmentalDeath"),
+                              dc.get_dic_obj(all_heroes, "Cards", "Card"),
+                              dc.get_dic_obj(all_heroes, "Medals", "Medal"),
+                              dc.get_dic_obj(all_heroes, "Medals-Gold", "Medal-Gold"),
+                              dc.get_dic_obj(all_heroes, "Medals-Silver", "Medal-Silver"),
+                              dc.get_dic_obj(all_heroes, "Medals-Bronze", "Medal-Bronze"),
+                              dc.get_dic_obj(all_heroes, "GamesPlayed", "GamePlayed"),
+                              dc.get_dic_obj(all_heroes, "GamesWon", "GameWon"),
+                              dc.get_dic_obj(all_heroes, "TimeSpentonFire"),
+                              dc.get_dic_obj(all_heroes, "ObjectiveTime"),
+                              dc.get_dic_obj(all_heroes, "TimePlayed"),
+                              dc.get_dic_obj(all_heroes, "MeleeFinalBlows-MostinGame", "MeleeFinalBlow-MostinGame"),
+                              dc.get_dic_obj(all_heroes, "GamesTied", "GameTied") if mode == "competitive" else None,
+                              dc.get_dic_obj(all_heroes, "GamesLost", "GameLost") if mode == "competitive" else None,
+                              dc.get_dic_obj(all_heroes, "DefensiveAssists", "DefensiveAssist"),
+                              dc.get_dic_obj(all_heroes, "DefensiveAssists-Average", "DefensiveAssist-Average"),
+                              dc.get_dic_obj(all_heroes, "OffensiveAssists", "OffensiveAssist"),
+                              dc.get_dic_obj(all_heroes, "OffensiveAssists-Average", "OffensiveAssist-Average")
+                              )
+        return result
+    except urllib.error.URLError as e:
+        print("An error occurred when fetching stats\n" + str(e))
+        exit(1)
+    except Exception as e:
+        print("An error occurred:\n " + str(e))
+        exit(1)
+#
+def get_heroes_stats(tag, hero, platform="pc", region="eu", mode="quickplay"):
+    """ API Wrapper object which returns stats for a specific hero """
+    try:
+        context = ssl._create_unverified_context()
+        hero_stats = json.load(
+            const.codec(
+                urlopen(const.URL + platform + "/" + region + "/" + tag + "/" + mode + "/hero/" + hero + "/", context=context)))
+        result = h.Hero(
+            dc.get_dic_obj(hero_stats, "Eliminations", "Elimination"),
+            dc.get_dic_obj(hero_stats, "FinalBlows", "FinalBlow"),
+            dc.get_dic_obj(hero_stats, "SoloKills", "SoloKill"),
+            dc.get_dic_obj(hero_stats, "ShotsFired", "ShotFired"),
+            dc.get_dic_obj(hero_stats, "ShotsHit", "ShotHit"),
+            dc.get_dic_obj(hero_stats, "CriticalHits", "CriticalHit"),
+            dc.get_dic_obj(hero_stats, "DamageDone"),
+            dc.get_dic_obj(hero_stats, "ObjectiveKills", "ObjectiveKills"),
+            dc.get_dic_obj(hero_stats, "Multikill", "Multikills"),
+            dc.get_dic_obj(hero_stats, "CriticalHitsperMinute", "CriticalHitperMinute"),
+            dc.get_dic_obj(hero_stats, "CriticalHitAccuracy"),
+            dc.get_dic_obj(hero_stats, "EliminationsperLife", "EliminationperLife"),
+            dc.get_dic_obj(hero_stats, "WeaponAccuracy"),
+            dc.get_dic_obj(hero_stats, "TeleporterPadsDestroyed", "TeleporterPadDestroyed"),
+            dc.get_dic_obj(hero_stats, "TurretsDestroyed", "TurretDestroyed"),
+            dc.get_dic_obj(hero_stats, "SelfHealing"),
+            dc.get_dic_obj(hero_stats, "Eliminations-MostinLife", "Elimination-MostinLife"),
+            dc.get_dic_obj(hero_stats, "DamageDone-MostinLife"),
+            dc.get_dic_obj(hero_stats, "WeaponAccuracy-BestinGame"),
+            dc.get_dic_obj(hero_stats, "KillStreak-Best"),
+            dc.get_dic_obj(hero_stats, "DamageDone-MostinGame"),
+            dc.get_dic_obj(hero_stats, "Eliminations-MostinGame", "Elimination-MostinGame"),
+            dc.get_dic_obj(hero_stats, "FinalBlows-MostinGame", "FinalBlow-MostinGame"),
+            dc.get_dic_obj(hero_stats, "ObjectiveKills-MostinGame", "ObjectiveKill-MostinGame"),
+            dc.get_dic_obj(hero_stats, "ObjectiveTime-MostinGame"),
+            dc.get_dic_obj(hero_stats, "SoloKills-MostinGame", "SoloKill-MostinGame"),
+            dc.get_dic_obj(hero_stats, "CriticalHits-MostinGame", "CriticalHit-MostinGame"),
+            dc.get_dic_obj(hero_stats, "CriticalHits-MostinLife", "CrtiticalHit-MostinLife"),
+            dc.get_dic_obj(hero_stats, "SelfHealing-Average"),
+            dc.get_dic_obj(hero_stats, "Deaths-Average", "Death-Average"),
+            dc.get_dic_obj(hero_stats, "SoloKills-Average", "SoloKill-Average"),
+            dc.get_dic_obj(hero_stats, "ObjectiveTime-Average"),
+            dc.get_dic_obj(hero_stats, "ObjectiveKills-Average", "ObjectiveKill-Average"),
+            dc.get_dic_obj(hero_stats, "FinalBlows-Average", "FinalBlow-Average"),
+            dc.get_dic_obj(hero_stats, "Eliminations-Average", "Elimination-Average"),
+            dc.get_dic_obj(hero_stats, "DamageDone-Average"),
+            dc.get_dic_obj(hero_stats, "Deaths", "Death"),
+            dc.get_dic_obj(hero_stats, "EnvironmentalDeaths", "EnvironmentalDeath"),
+            dc.get_dic_obj(hero_stats, "Medals-Bronze", "Medal-Bronze"),
+            dc.get_dic_obj(hero_stats, "Medals-Silver", "Medal-Silver"),
+            dc.get_dic_obj(hero_stats, "Medals-Gold", "Medal-Gold"),
+            dc.get_dic_obj(hero_stats, "Medals", "Medal"),
+            dc.get_dic_obj(hero_stats, "Cards", "Card"),
+            dc.get_dic_obj(hero_stats, "TimePlayed"),
+            dc.get_dic_obj(hero_stats, "GamesWon", "GameWon"),
+            dc.get_dic_obj(hero_stats, "ObjectiveTime"),
+            dc.get_dic_obj(hero_stats, "TimeSpentOnFire"),
+            dc.get_dic_obj(hero_stats, "Multikill-Best"),
+        )
         return result
     except urllib.error.URLError as e:
         print("An error occurred when fetching stats\n" + str(e))

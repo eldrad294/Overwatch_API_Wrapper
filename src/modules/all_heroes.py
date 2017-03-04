@@ -1,7 +1,8 @@
 from src.contracts.api_contract import APIContract
+from src.contracts.hero_contract import HeroContract
 from src.utils import html_stripper as hs
 #
-class AllHeroes(APIContract):
+class AllHeroes(APIContract, HeroContract):
     #
     def __init__(self, melee_final_blows, solo_kills, objective_kills, final_blows, damage_done, eliminations,
                  environmental_kills, multikills, healing_done, eliminations_mig, final_blows_mig, damage_done_mig,

@@ -14,6 +14,8 @@ try:
     platform = sys.argv[3] if len(sys.argv) > 3 else 'pc'
     region = sys.argv[4] if len(sys.argv) > 4 else 'eu'
     mode = sys.argv[5] if len(sys.argv) > 5 else 'quickplay'
+    hero = sys.argv[6] if len(sys.argv) > 6 else None
+    #
 except IndexError as e:
     print("Invalid Arguments.\n" + str(e))
     exit(1)
@@ -43,18 +45,32 @@ elif command in PLATFORMS:
         platform.display_api_obj()
 elif command in PROFILES:
     pl.get_profile(tag, platform, region).display_api_obj()
-elif command in ALL_HEROES_STATS:
-    pl.get_all_heroes_stats(tag, platform, region, mode).display_api_obj()
-elif command in GET_MEDALS:
-    pl.get_all_heroes_stats(tag, platform, region, mode).get_medals()
-elif command in GET_KILLS:
-    pl.get_all_heroes_stats(tag, platform, region, mode).get_kills()
-elif command in GET_TIME:
-    pl.get_all_heroes_stats(tag, platform, region, mode).get_time()
-elif command in GET_GAMES:
-    pl.get_all_heroes_stats(tag, platform, region, mode).get_games()
-elif command in GET_OBJECTIVES:
-    pl.get_all_heroes_stats(tag, platform, region, mode).get_objectives()
+elif hero is None:
+    if command in ALL_HEROES_STATS:
+        pl.get_all_heroes_stats(tag, platform, region, mode).display_api_obj()
+    elif command in GET_MEDALS:
+        pl.get_all_heroes_stats(tag, platform, region, mode).get_medals()
+    elif command in GET_KILLS:
+        pl.get_all_heroes_stats(tag, platform, region, mode).get_kills()
+    elif command in GET_TIME:
+        pl.get_all_heroes_stats(tag, platform, region, mode).get_time()
+    elif command in GET_GAMES:
+        pl.get_all_heroes_stats(tag, platform, region, mode).get_games()
+    elif command in GET_OBJECTIVES:
+        pl.get_all_heroes_stats(tag, platform, region, mode).get_objectives()
+elif hero is not None:
+    if command in ALL_HEROES_STATS:
+        pl.get_heroes_stats(tag, hero, platform, region, mode).display_api_obj()
+    elif command in GET_MEDALS:
+        pl.get_heroes_stats(tag, hero, platform, region, mode).get_medals()
+    elif command in GET_KILLS:
+        pl.get_heroes_stats(tag, hero, platform, region, mode).get_kills()
+    elif command in GET_TIME:
+        pl.get_heroes_stats(tag, hero, platform, region, mode).get_time()
+    elif command in GET_GAMES:
+        pl.get_heroes_stats(tag, hero, platform, region, mode).get_games()
+    elif command in GET_OBJECTIVES:
+        pl.get_heroes_stats(tag, hero, platform, region, mode).get_objectives()
 else:
     print("Stat retrieval failed. Incorrect command/s")
     exit(1)

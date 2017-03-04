@@ -10,4 +10,5 @@ def get_help():
     print("platform {pc, xbl, psn} [compulsory except for getpatchnotes, gethelp]")
     print("region {eu, us, kr, cn, global} [compulsory except for getpatchnotes, gethelp]")
     print("mode {quickplay, competitive} [optional except for getheroesstats]")
+    print("hero {Tracer, Roadhog, Torbjoern, Lucio, Soldier76, etc} [optional. Retrieves hero stats when used with getheroesstats/getmedals/getkills/gettime/getgames/getobjectives]")
     print("------------------------------------------")
